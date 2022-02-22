@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Marathon Chat</title>
+</head>
+<body>
+  <div class="app">
+    <div class="chat">
+      <div class="settings">
+        <div class="settings__window">
+          <div class="settings__top">
+            <div class="settings__header">Настройки</div>
+            <button class="settings__close">+</button>
+          </div>
+          <div class="settings__label">Имя в чате</div>
+          <form action="#" class="settings__form">
+            <input type="text" value="Семен" class="settings__input-name"> <button type="submit" class="btn settings__btn">-></button>
+          </form>
+        </div>
+      </div>
+      <div class="menu">
+        <button class="btn settings-btn">
+          Настройки
+        </button>
+        <button class="btn exit-btn">
+          Выйти
+        </button>
+      </div>
+      <div class="messages">
+        <div class="container">
+          <template class="message-tmpl">
+            <div class="message">
+              <span class="message__name"></span>: <span class="message__text"></span>
+              <div class="message__time"></div>
+            </div>
+          </template>
+          <div class="message self read">
+            <span class="message__name">Я</span>: <span class="message__text">Добрый день!</span>
+            <div class="message__time">18:45</div>
+          </div>
+          <div class="message companion read">
+            <span class="message__name">Собеседник мой</span>: <span class="message__text">Добрый день!</span>
+            <div class="message__time">18:45</div>
+          </div>
+          <div class="message companion read">
+            <span class="message__name">Собеседник мой</span>: <span class="message__text">А это второе и, кажется, оно очень 
+            длинное, чтобы поместиться на 
+            одной строке</span>
+            <div class="message__time">18:45</div>
+          </div>
+          <div class="message self sent">
+            <span class="message__name">Я</span>: <span class="message__text">Добрый день!</span>
+            <div class="message__time">18:45</div>
+          </div>
+        </div>
+      </div>
+      <form action="#" class="send">
+        <input type="text" class="send__input" placeholder="сообщение..">
+        <button class="btn send__btn">-></button>
+      </form>
+    </div>
+  </div>
+  <script src="/js/main.js" type="module"></script>
+</body>
+</html>
