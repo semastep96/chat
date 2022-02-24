@@ -124,15 +124,32 @@ button {
   color: #333333;
 }
 
-.settings {
+.modal {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: #535353e7;
-  z-index: -1;
   padding: 106px 24px 108px;
+}
+
+.modal__window {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 16px 14px;
+}
+
+.modal__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.settings {
+  z-index: -1;
   opacity: 0;
 }
 
@@ -142,21 +159,7 @@ button {
   transition: all 0.3s ease-in;
 }
 
-.settings__window {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  padding: 16px 14px;
-}
-
-.settings__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.settings__close {
+.modal__close {
   color: #000000;
   font-size: 24px;
   opacity: 0.45;
@@ -164,7 +167,7 @@ button {
   transition: all 0.3s ease-in;
 }
 
-.settings__close:hover {
+.modal__close:hover {
   color: #000000;
   font-size: 24px;
   opacity: 0.8;
@@ -184,4 +187,56 @@ button {
 .settings__form {
   display: flex;
   justify-content: space-between;
+}
+
+.auth {
+  z-index: -1;
+  opacity: 0;
+}
+
+.auth.active {
+  z-index: 2;
+  opacity: 1;
+  transition: all ease-in 0.3s;
+}
+
+.auth .modal__window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth__input {
+  padding: 6px 8px 7px;
+  border: 1px solid black;
+  margin: 3px 0 7px;
+  width: 100%;
+}
+
+.auth__bottom {
+  height: 50px;
+}
+
+.confirm {
+  z-index: -1;
+  opacity: 0;
+}
+
+.confirm.active {
+  z-index: 2;
+  opacity: 1;
+  transition: all ease-in 0.3s;
+}
+
+.confirm .modal__window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.confirm__input {
+  padding: 6px 8px 7px;
+  border: 1px solid black;
+  margin: 3px 0 7px;
+  width: 100%;
 }

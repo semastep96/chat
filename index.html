@@ -10,16 +10,44 @@
 <body>
   <div class="app">
     <div class="chat">
-      <div class="settings">
-        <div class="settings__window">
-          <div class="settings__top">
-            <div class="settings__header">Настройки</div>
-            <button class="settings__close">+</button>
+      <div class="settings modal">
+        <div class="modal__window">
+          <div class="settings__top modal__top">
+            <div class="settings__header modal__header">Настройки</div>
+            <button class="settings__close modal__close">+</button>
           </div>
           <div class="settings__label">Имя в чате</div>
           <form action="#" class="settings__form">
             <input type="text" value="Семен" class="settings__input-name"> <button type="submit" class="btn settings__btn">-></button>
           </form>
+        </div>
+      </div>
+      <div class="auth modal">
+        <div class="modal__window">
+          <div class="modal__top">
+            <div class="modal__header">Авторизация</div>
+            <button class="modal__close">+</button>
+          </div>
+          <form action="#" class="auth__form">
+            <div class="auth__label">Почта:</div>
+            <input type="text" placeholder="my@email.com" class="auth__input">
+            <button class="btn auth__btn">Получить код</button>
+          </form>
+          <div class="auth__bottom"></div>
+        </div>
+      </div>
+      <div class="confirm modal">
+        <div class="modal__window">
+          <div class="modal__top">
+            <div class="modal__header">Подтверждение</div>
+            <button class="modal__close">+</button>
+          </div>
+          <form action="#" class="confirm__form">
+            <div class="confirm__label">Код:</div>
+            <input type="text" class="confirm__input">
+            <button class="btn confirm__btn">Войти</button>
+          </form>
+          <div class="auth__bottom"></div>
         </div>
       </div>
       <div class="menu">
