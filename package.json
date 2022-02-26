@@ -18,5 +18,8 @@
   "homepage": "https://github.com/semastep96/chat#readme",
   "devDependencies": {
     "parcel": "^2.3.2"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.1"
   }
 }
