@@ -5,6 +5,7 @@ export const API = {
   API_URL: 'https://chat1-341409.oa.r.appspot.com/api/',
   AUTH_ENDPOINT: 'user',
   ME_ENDPOINT: 'user/me',
+  MESSAGES_ENDPOINT: 'messages/',
   async makeResponse(endpoint, method = 'GET', body) {
     const token = Cookies.get(TOKEN_KEY)
     const headers = {}
@@ -29,5 +30,9 @@ export const API = {
   },
   me() {
     return this.makeResponse(API.ME_ENDPOINT, 'GET')
+  },
+  async getMessages() {
+    const response = await this.makeResponse(this.MESSAGES_ENDPOINT, 'GET')
+    return response.messages
   }
 }

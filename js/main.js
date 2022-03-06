@@ -5,7 +5,9 @@ import { MODAL } from './modal.js'
 import { API, TOKEN_KEY } from './api.js'
 import Cookies from 'js-cookie'
 
-CHAT.scrollToLastMsg()
+CHAT.renderMessages().then(() => {
+  CHAT.scrollToLastMsg()
+})
 
 UI.SEND_FORM.FORM.addEventListener('submit', e => {
   e.preventDefault()

@@ -18,6 +18,6 @@ export const messages = {
     const text = UI.SEND_FORM.INPUT.value
     if (!text) return
     UI.MESSAGES.CONTAINER.append(messages.createMessage(selfName, text, new Date(), false, false))
-  }
+  },
 }
 
