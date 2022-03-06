@@ -3,6 +3,7 @@ export const TOKEN_KEY = 'token'
 
 export const API = {
   API_URL: 'https://chat1-341409.oa.r.appspot.com/api/',
+  SOCKET_URL: `ws://chat1-341409.oa.r.appspot.com/websockets?`,
   AUTH_ENDPOINT: 'user',
   ME_ENDPOINT: 'user/me',
   MESSAGES_ENDPOINT: 'messages/',
@@ -34,5 +35,13 @@ export const API = {
   async getMessages() {
     const response = await this.makeResponse(this.MESSAGES_ENDPOINT, 'GET')
     return response.messages
+  },
+  connect() {
+    return new WebSocket(`${this.SOCKET_URL}${Cookies.get(TOKEN_KEY)}`);
+  },
+  sendMessage(socket, text) {
+    socket.send(JSON.stringify({
+      text: `${text}`,
+    }));    
   }
 }

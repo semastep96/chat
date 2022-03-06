@@ -1,17 +1,38 @@
 import { UI } from './view.js'
 import { CHAT } from './chat.js'
-import { messages } from './message.js'
 import { MODAL } from './modal.js'
 import { API, TOKEN_KEY } from './api.js'
 import Cookies from 'js-cookie'
+
+export const EMAIL_KEY = 'email'
+
+UI.SEND_FORM.INPUT.disabled = true
+UI.SEND_FORM.INPUT.placeholder = "connecting"
+
+if (!Cookies.get(EMAIL_KEY)) {
+  API.me().then(info => Cookies.set(EMAIL_KEY, info.email, { expires: 365 * 10 }))
+}
 
 CHAT.renderMessages().then(() => {
   CHAT.scrollToLastMsg()
 })
 
+const socket = API.connect()
+socket.onmessage = event => {
+  CHAT.renderMessage(JSON.parse(event.data));
+  CHAT.scrollToLastMsg()
+}
+socket.onopen = e => {
+  UI.SEND_FORM.INPUT.disabled = false
+  UI.SEND_FORM.INPUT.placeholder = "Введите сообщение..."
+}
+
 UI.SEND_FORM.FORM.addEventListener('submit', e => {
   e.preventDefault()
-  messages.sendSelfMessage()
+  const text = UI.SEND_FORM.INPUT.value.trim()
+  if (!text) return
+
+  API.sendMessage(socket, text)
   CHAT.scrollToLastMsg()
   e.target.reset()
 })
